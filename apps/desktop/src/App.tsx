@@ -66,10 +66,10 @@ function ClientHome({ session, onNavigate, onLogout }: { session: Session; onNav
     </div>
     <img className="client-home-logo" src="/assets/labore-logo.png" alt="Labore" />
     <div className="client-home-actions" aria-label="Atalhos principais do cliente">
-      <button className="client-hotspot support" onClick={() => onNavigate("Chamados")} aria-label="Abrir suporte"><span className="home-icon">◌</span><strong>Suporte</strong></button>
-      <button className="client-hotspot accounting" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir documentos da contabilidade"><span className="home-icon">▤</span><strong>Documentos da<br />contabilidade</strong></button>
-      <button className="client-hotspot upload" onClick={() => onNavigate("Enviar documentos")} aria-label="Enviar documentos"><span className="home-icon">↑</span><strong>Enviar<br />documentos</strong></button>
-      <button className="client-hotspot finance" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir financeiro"><span className="home-icon">◇</span><strong>Financeiro</strong></button>
+      <button className="client-hotspot support" onClick={() => onNavigate("Chamados")} aria-label="Abrir suporte"><span className="home-icon support-icon" aria-hidden="true" /><strong>Suporte</strong></button>
+      <button className="client-hotspot accounting" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir documentos da contabilidade"><span className="home-icon document-icon" aria-hidden="true" /><strong>Documentos da<br />contabilidade</strong></button>
+      <button className="client-hotspot upload" onClick={() => onNavigate("Enviar documentos")} aria-label="Enviar documentos"><span className="home-icon upload-icon" aria-hidden="true" /><strong>Enviar<br />documentos</strong></button>
+      <button className="client-hotspot finance" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir financeiro"><span className="home-icon finance-icon" aria-hidden="true"><b>R$</b></span><strong>Financeiro</strong></button>
     </div>
   </main>;
 }
