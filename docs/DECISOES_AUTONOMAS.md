@@ -101,3 +101,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: mantém separação de ambientes e permite progresso sem risco de dados reais.
 - Impacto: custo baixo; segurança alta; manutenção alta por tornar testes reproduzíveis.
 - Revisão: trocar por dados anonimizados somente mediante aprovação legal e operacional.
+
+### A015 - Produção explicitamente fora da automação
+- Escopo: Fase 14.
+- Decisão: limitar a entrega a roteiros, checklists e placeholders; não publicar nem configurar serviços externos.
+- Justificativa: produção exige credenciais, decisões legais, backup, assinatura e autorização expressa.
+- Impacto: custo operacional futuro; segurança alta; manutenção melhor por tornar o gate explícito.
+- Revisão: somente mediante autorização específica de implantação.

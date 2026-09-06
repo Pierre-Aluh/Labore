@@ -4,7 +4,7 @@ Fundacao do sistema de gestao documental e atendimento contabil.
 
 ## Estado atual
 
-A Fase 01 e exclusivamente fundacional. Nao ha login, banco funcional, migrations, telas de negocio, upload, storage de clientes ou API de negocio.
+As fases locais autorizadas foram executadas até a documentação de implantação. A produção não foi publicada. Bloqueios de Docker/PostgreSQL e MSVC estão em `docs/BLOQUEIOS_DO_USUARIO.md`.
 
 Arquitetura aprovada:
 
@@ -50,6 +50,6 @@ Os comandos de qualidade e testes serao adicionados quando os primeiros modulos 
 
 Copie `config/.env.example` para uma configuracao local protegida, por exemplo `config/.env.local`, sem commitar segredos. O arquivo de exemplo nao contem credenciais reais. Para usar o Compose com esse arquivo, execute `docker compose --env-file config/.env.local --profile local-infra config`.
 
-## Proximos passos
+## Próximos passos
 
-A Fase 02 somente deve iniciar apos aprovacao explicita do usuario. Consulte `docs/DECISOES_PENDENTES.md` para as decisoes por fase.
+Consulte `docs/DEPLOYMENT_RUNBOOK.md`, `docs/PRODUCTION_READINESS.md` e `docs/BLOQUEIOS_DO_USUARIO.md` antes de homologar. Nenhuma publicação deve ocorrer sem autorização expressa.

@@ -66,4 +66,8 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 - Fase 11: concluída em 2026-09-05, com scripts seguros de backup/restore e runbook de recuperação.
 - Fase 12: concluída em 2026-09-05 com contrato de compatibilidade e documentação de instalador; artefato Tauri bloqueado por MSVC/assinatura.
 - Fase 13: concluída em 2026-09-05 com 37 testes backend, validação frontend, fixture sintética e Alembic offline.
-- Próxima fase: Fase 14, documentação e roteiro de implantação.
+- Fase 14: concluída em 2026-09-05 com roteiros de homologação, operação, recuperação e prontidão produtiva.
+
+## 9. Encerramento da sequência autorizada
+
+As fases foram executadas localmente na ordem autorizada. Fases 10 e 12 têm entrega frontend/documental concluída, mas a compilação/assinatura Tauri permanece bloqueada por MSVC e certificados. Nenhuma publicação foi realizada.
