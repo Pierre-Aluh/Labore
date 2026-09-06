@@ -129,3 +129,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: evita exposição visual incorreta e mantém a UI coerente com RBAC.
 - Impacto: custo baixo/médio; segurança alta por não confiar no cliente; manutenção melhor por contrato explícito.
 - Revisão: novos papéis devem ser adicionados ao mapeamento com testes.
+
+### A019 - Referência visual do cliente
+- Escopo: tela inicial pós-login do cliente.
+- Decisão: usar a imagem fornecida como referência visual de composição e a logo original como asset; manter hotspots reais sobre a composição.
+- Justificativa: respeita a identidade visual fornecida sem transformar a imagem em uma tela não interativa.
+- Impacto: custo baixo; segurança neutra; manutenção simples por manter os atalhos ligados à navegação existente.
+- Revisão: novos atalhos devem continuar apontando para views/API reais.

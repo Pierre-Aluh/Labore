@@ -109,3 +109,9 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Colaborador possui API `/workspace` para empresas, documentos, chamados e resumo operacional.
 - Administrador possui consultas de empresas, usuários, papéis e auditoria.
 - Typecheck, build e suíte backend continuam aprovados após a alteração.
+
+## 19. Tela inicial do cliente
+
+- A tela inicial pós-login do cliente usa a referência visual fornecida em `public/assets/client-home-reference.png`.
+- A logo exibida usa `public/assets/labore-logo.png`.
+- Suporte, documentos, envio, financeiro e notificações permanecem atalhos funcionais para as views/API correspondentes.

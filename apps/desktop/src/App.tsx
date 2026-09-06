@@ -51,10 +51,27 @@ export function App() {
   }
 
   if (!session) return <LoginScreen onSubmit={handleLogin} error={loginError} />;
+  if (session.role === "cliente" && selectedPage === "Visão geral") return <ClientHome session={session} onNavigate={setSelectedPage} onLogout={() => setSession(null)} />;
   return <div className="shell">
     <aside className="sidebar"><div className="brand"><span className="brand-mark">L</span><span>Labore Portal</span></div><div className="profile"><span className="avatar">{session.displayName.slice(0, 1).toUpperCase()}</span><div><strong>{session.displayName}</strong><small>{session.role}</small></div></div><nav>{navigation[session.role].map((item) => <button className={selectedPage === item ? "nav-item active" : "nav-item"} key={item} onClick={() => setSelectedPage(item)}>{item}</button>)}</nav><button className="logout" onClick={() => setSession(null)}>Sair</button></aside>
     <main className="content"><header className="topbar"><div><span className="eyebrow">Portal privado</span><h1>{selectedPage}</h1></div><span className="connection"><i /> API conectada</span></header><Workspace page={selectedPage} session={session} /></main>
   </div>;
+}
+
+function ClientHome({ session, onNavigate, onLogout }: { session: Session; onNavigate: (page: string) => void; onLogout: () => void }) {
+  return <main className="client-home">
+    <div className="client-home-topline">
+      <button className="client-notifications" onClick={() => onNavigate("Notificações")} aria-label="Abrir notificações"><span className="bell-mark" aria-hidden="true">♧</span><span>Notificações</span></button>
+      <div className="client-user"><span>{session.displayName}</span><button onClick={onLogout}>Sair</button></div>
+    </div>
+    <img className="client-home-logo" src="/assets/labore-logo.png" alt="Labore" />
+    <div className="client-home-actions" aria-label="Atalhos principais do cliente">
+      <button className="client-hotspot support" onClick={() => onNavigate("Chamados")} aria-label="Abrir suporte"><span>Suporte</span></button>
+      <button className="client-hotspot accounting" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir documentos da contabilidade"><span>Documentos da contabilidade</span></button>
+      <button className="client-hotspot upload" onClick={() => onNavigate("Enviar documentos")} aria-label="Enviar documentos"><span>Enviar documentos</span></button>
+      <button className="client-hotspot finance" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir financeiro"><span>Financeiro</span></button>
+    </div>
+  </main>;
 }
 
 function Workspace({ page, session }: { page: string; session: Session }) {
