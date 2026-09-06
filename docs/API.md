@@ -91,3 +91,11 @@ Exemplo conceitual:
 - `POST /api/v1/auth/logout` revoga a sessão Bearer apresentada.
 - `GET /api/v1/auth/me` valida a sessão e retorna somente identidade básica.
 - Nenhum endpoint de negócio foi criado nesta fase.
+
+## 14. Implementação da Fase 04
+
+- `POST/GET /api/v1/admin/companies`: cadastro e consulta de empresas com permissão.
+- `POST /api/v1/admin/users`: criação de usuário, papel e vínculos de empresa com permissão.
+- `POST /api/v1/admin/departments`: cadastro de departamento com permissão.
+- `GET /api/v1/admin/roles`: consulta do catálogo de papéis com permissão.
+- Rotas administrativas retornam 401 sem sessão e 403 sem permissão.

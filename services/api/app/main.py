@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.api import router
 from app.core.config import get_settings
+from app.routes import router as admin_routes
 
 settings = get_settings()
 app = FastAPI(title=settings.app_name, version="0.1.0")
@@ -13,3 +14,4 @@ def health() -> dict[str, str]:
 
 
 app.include_router(router)
+app.include_router(admin_routes)

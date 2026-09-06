@@ -62,3 +62,11 @@ Eventos mínimos:
 - Cinco falhas consecutivas geram bloqueio temporário de 15 minutos.
 - Login bem-sucedido, falho e logout geram eventos de auditoria sem senha ou token.
 - Não foi criado usuário padrão e MFA permanece fora da versão atual.
+
+## 12. Implementação da Fase 04
+
+- Autorização centralizada por recurso e ação.
+- Permissões são negadas quando não há vínculo explícito entre usuário, papel e permissão.
+- Rotas administrativas não possuem bypass por nome de perfil.
+- Criação de usuário exige senha mínima de 12 caracteres e armazena somente hash Argon2id.
+- Consultas administrativas devem continuar recebendo filtros de empresa nas fases de domínio.

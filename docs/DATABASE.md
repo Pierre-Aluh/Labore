@@ -105,3 +105,9 @@ Política obrigatória:
 - UUIDs PostgreSQL com `pgcrypto` e JSONB para metadados de auditoria.
 - Não foram criados dados iniciais, usuários, migrations destrutivas ou binários.
 - A migration deve ser aplicada somente em banco local/homologação controlado.
+
+## 13. Implementação da Fase 04
+
+- A migration `0002_seed_rbac` cria papéis, permissões e departamentos iniciais de forma idempotente.
+- Não há usuário administrador padrão nem senha inicial.
+- Vínculos `company_users` e `user_roles` suportam isolamento por empresa e RBAC.

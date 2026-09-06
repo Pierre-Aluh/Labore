@@ -31,3 +31,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: permite revogação imediata e reduz exposição de dados no token; é compatível com desktop e WebSocket futuro.
 - Impacto: custo baixo/médio; segurança alta; manutenção simples por usar a tabela `sessions` já prevista.
 - Revisão: duração e mecanismo de transporte podem mudar sem alterar o modelo de identidade.
+
+### A005 - RBAC por recurso e ação
+- Escopo: Fase 04.
+- Decisão: autorizar por pares `resource/action`, com vínculos explícitos de usuário-papel e empresa-usuário; negar por padrão.
+- Justificativa: evita autorização baseada apenas em rótulo e permite menor privilégio por departamento.
+- Impacto: custo médio; segurança alta; manutenção alta por centralizar a regra.
+- Revisão: novos recursos entram por migration e testes de acesso positivo/negativo.
