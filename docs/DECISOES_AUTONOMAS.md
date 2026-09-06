@@ -38,3 +38,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: evita autorização baseada apenas em rótulo e permite menor privilégio por departamento.
 - Impacto: custo médio; segurança alta; manutenção alta por centralizar a regra.
 - Revisão: novos recursos entram por migration e testes de acesso positivo/negativo.
+
+### A006 - Quarentena antes da disponibilidade
+- Escopo: Fase 05.
+- Decisão: todo upload começa como `quarantined`; download exige aprovação explícita.
+- Justificativa: não disponibilizar arquivos antes de uma futura política de antivírus/quarentena.
+- Impacto: custo baixo agora; segurança alta; manutenção média por exigir etapa operacional.
+- Revisão: pode ser conectado a scanner futuro sem alterar o contrato de documento.

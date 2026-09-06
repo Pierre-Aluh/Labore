@@ -70,3 +70,10 @@ Eventos mínimos:
 - Rotas administrativas não possuem bypass por nome de perfil.
 - Criação de usuário exige senha mínima de 12 caracteres e armazena somente hash Argon2id.
 - Consultas administrativas devem continuar recebendo filtros de empresa nas fases de domínio.
+
+## 13. Implementação da Fase 05
+
+- Upload valida extensão, sanitiza nome, limita tamanho e usa quarentena.
+- Download verifica sessão, permissão, vínculo com empresa e estado disponível.
+- Falhas de persistência removem o arquivo físico criado e fazem rollback dos metadados.
+- Não há antivírus integrado nesta fase; a aprovação é deliberadamente separada e a política continua pendente.

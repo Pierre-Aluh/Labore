@@ -58,3 +58,12 @@ Exemplo de categorias:
 - Processo exato de purge definitivo.
 - Política de antivírus e quarentena.
 - Política de restauração quando o banco e o arquivo divergirem.
+
+## 10. Implementação da Fase 05
+
+- Caminho físico usa UUIDs de empresa, competência e documento.
+- Extensões permitidas seguem a lista inicial da especificação.
+- Upload grava em arquivo temporário e publica por `os.replace`.
+- Hash SHA-256 e metadados são registrados pela API.
+- Estado inicial é `quarantined`; somente documento aprovado fica disponível para download.
+- O limite padrão é configurável por `LABORE_MAX_UPLOAD_SIZE_BYTES` e começa em 50 MiB.

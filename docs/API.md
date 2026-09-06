@@ -99,3 +99,10 @@ Exemplo conceitual:
 - `POST /api/v1/admin/departments`: cadastro de departamento com permissão.
 - `GET /api/v1/admin/roles`: consulta do catálogo de papéis com permissão.
 - Rotas administrativas retornam 401 sem sessão e 403 sem permissão.
+
+## 15. Implementação da Fase 05
+
+- `POST /api/v1/documents`: upload multipart autenticado e autorizado, sempre em quarentena.
+- `GET /api/v1/documents/{document_id}/download`: download somente de documento disponível e acessível à empresa.
+- `POST /api/v1/documents/{document_id}/approve`: aprovação explícita e auditada.
+- O caminho físico nunca é recebido do cliente e não há endpoint de filesystem.
