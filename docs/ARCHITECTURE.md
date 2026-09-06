@@ -96,3 +96,11 @@ Sugestão de domínios de UI:
 - Estratégia final de comunicação assíncrona interna (fila dedicada ou eventos in-process na V1).
 - Regras finais de versionamento de API e compatibilidade de cliente.
 - Estratégia detalhada de atualização automática do desktop.
+
+## 12. Implementação da Fase 10
+
+- O desktop usa uma única aplicação React/Tauri e navegação por papel.
+- A autenticação chama a API; não há credenciais ou dados de demonstração embutidos.
+- A interface mostra estado de ambiente e falha de conexão sem acessar filesystem.
+- Typecheck, teste Vitest e build Vite passam.
+- Cargo/Tauri aguarda Visual Studio Build Tools/MSVC, conforme docs/BLOQUEIOS_DO_USUARIO.md.

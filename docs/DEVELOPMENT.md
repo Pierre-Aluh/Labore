@@ -75,3 +75,9 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 
 - Os testes de autenticação executados nesta fase são unitários e de contrato HTTP.
 - O fluxo completo contra PostgreSQL deve ser executado quando o serviço local estiver operacional, usando somente dados sintéticos.
+
+## 14. Fase 10 Desktop
+
+- Dependências frontend: React, Vite, TypeScript, Tauri API/CLI e Vitest.
+- Validações concluídas: `npm.cmd run typecheck`, `npm.cmd run test` e `npm.cmd run build`.
+- Validação pendente: `cargo check` requer linker MSVC disponível.

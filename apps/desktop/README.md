@@ -1,5 +1,16 @@
-# Desktop foundation
+# Desktop
 
-Placeholder estrutural para Tauri 2 + React + TypeScript. Nenhuma tela de negocio ou fluxo de usuario e implementado na Fase 01.
+Aplicativo único Tauri 2 + React + TypeScript, com navegação derivada do papel recebido após login.
 
-A inicializacao executavel do desktop sera feita em uma unidade futura, apos validacao das versoes de Node, Rust e Tauri no Windows suportado.
+## Validação local
+
+```powershell
+npm.cmd run typecheck
+npm.cmd run test
+npm.cmd run build
+& "$env:USERPROFILE\.cargo\bin\cargo.exe" check --manifest-path apps/desktop/src-tauri/Cargo.toml
+```
+
+A última validação exige Visual Studio Build Tools com C++/MSVC e Windows SDK. O bloqueio atual está registrado em `docs/BLOQUEIOS_DO_USUARIO.md`.
+
+Atualização automática e assinatura permanecem desabilitadas até a estratégia da Fase 12 ser homologada.

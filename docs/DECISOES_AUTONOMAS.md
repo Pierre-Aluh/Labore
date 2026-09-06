@@ -73,3 +73,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: garante recuperação após indisponibilidade de rede e permite futura entrega por e-mail.
 - Impacto: custo baixo/médio; segurança média/alta; manutenção alta por separar persistência e transporte.
 - Revisão: canais externos ficam fora da V1.
+
+### A011 - Interface única por papel
+- Escopo: Fase 10.
+- Decisão: manter um shell desktop único e derivar navegação pelo papel retornado após autenticação.
+- Justificativa: atende a arquitetura aprovada e evita produtos separados por perfil.
+- Impacto: custo médio; segurança depende da API como autoridade; manutenção alta por compartilhar componentes.
+- Revisão: novas áreas devem respeitar permissões server-side.

@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "releaseDate": "YYYY-MM-DDTHH:MM:SSZ",
+  "notes": "Exemplo sem URL ou assinatura real.",
+  "platforms": {
+    "windows-x86_64": {
+      "url": "https://example.invalid/labore-portal-0.1.0.msi",
+      "signature": "PLACEHOLDER_ONLY"
+    }
+  }
+}
