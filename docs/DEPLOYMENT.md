@@ -77,3 +77,9 @@ Mitigações mínimas:
 - `infra/scripts/restore.ps1` simula por padrão e exige `-ConfirmRestore` para agir.
 - Pacotes comuns não incluem segredos.
 - O roteiro de recuperação está em `docs/RECOVERY_RUNBOOK.md`.
+
+## 11. Atualização e compatibilidade
+
+- O contrato de compatibilidade é validável localmente.
+- Instaladores e artefatos assinados dependem de MSVC, pipeline e certificados fora do repositório.
+- Nenhuma publicação externa foi feita.

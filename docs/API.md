@@ -134,3 +134,9 @@ Exemplo conceitual:
 - `GET /api/v1/notifications`: notificações internas do usuário.
 - `POST /api/v1/notifications/{notification_id}/read`: marca notificação própria como lida.
 - `WS /api/v1/ws/tickets/{ticket_id}?token=...`: canal autenticado de tempo real; sessão expirada/revogada é rejeitada.
+
+## 20. Implementação da Fase 12
+
+- `GET /api/v1/meta/compatibility?client_version=...` informa compatibilidade sem expor dados de negócio.
+- O endpoint não substitui autorização de recursos.
+- O desktop mantém atualização automática desativada até assinatura e rollback serem homologados.

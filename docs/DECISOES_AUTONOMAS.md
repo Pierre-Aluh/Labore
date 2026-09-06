@@ -87,3 +87,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: reduz risco de substituir banco/storage por engano.
 - Impacto: custo baixo; segurança operacional alta; manutenção simples.
 - Revisão: qualquer automação futura deve preservar confirmação e logs.
+
+### A013 - Compatibilidade por contrato simples
+- Escopo: Fase 12.
+- Decisão: expor versão da API, faixa do desktop e booleano de compatibilidade em endpoint público de metadata.
+- Justificativa: evita instalar cliente incompatível sem criar dependência externa ou mecanismo de atualização prematuro.
+- Impacto: custo baixo; segurança neutra por não expor dados sensíveis; manutenção simples.
+- Revisão: substituir por política semver formal antes de produção.
