@@ -1,0 +1,66 @@
+# DEVELOPMENT
+
+## 1. Objetivo
+Definir normas de desenvolvimento para execução incremental e segura do projeto.
+
+## 2. Fluxo de Trabalho Obrigatório
+- Planejar.
+- Implementar unidade pequena.
+- Testar.
+- Revisar.
+- Commit.
+- Seguir para próxima unidade.
+
+Durante a etapa documental atual, o fluxo termina na revisão e aprovação da documentação; nenhuma implementação deve começar sem autorização explícita.
+
+## 3. Regras de Escopo
+- Não alterar arquitetura sem aprovação explícita.
+- Não implementar funcionalidades fora da unidade aprovada.
+- Não instalar dependências sem justificativa técnica.
+
+## 4. Regras de Banco
+- Nenhuma alteração sem migration.
+- Migration revisada e testada.
+- Evitar alterações destrutivas sem plano de rollback.
+
+## 5. Regras de Arquivos
+- Nunca armazenar binários no PostgreSQL.
+- Nunca permitir acesso direto de cliente ao filesystem.
+- Toda ação de arquivo exige autenticação, autorização, validação e auditoria.
+
+## 6. Regras de Segurança
+- Não registrar segredos em logs/código/testes.
+- Usar apenas dados fictícios em dev/teste.
+- Seguir menor privilégio em todas as features.
+
+## 7. Regras de Qualidade
+- Testes apropriados por mudança.
+- Cobertura de fluxos críticos de segurança.
+- Revisão de risco de regressão por módulo.
+
+## 8. Git e Versionamento
+- Commits pequenos e descritivos.
+- Não reescrever histórico compartilhado sem aprovação.
+- Não desfazer trabalho do usuário sem autorização.
+
+## 9. Critérios de Pronto por Unidade
+- Requisito implementado conforme especificação.
+- Testes passando.
+- Auditoria e permissões validadas.
+- Documentação atualizada.
+
+Para documentação, o critério de pronto inclui matriz de cobertura dos capítulos aplicáveis e registro das pendências em docs/DECISOES_PENDENTES.md.
+
+## 10. Decisões Pendentes
+- Política formal de branching.
+- Política de versionamento semântico para backend e desktop.
+- Matriz de aprovação por tipo de mudança.
+- Convenção final de branches e revisão não devem bloquear a documentação; devem ser fechadas antes do primeiro ciclo de código compartilhado.
+
+## 11. Estado da Fase 01
+
+- Dependências de runtime não foram instaladas nesta fundação.
+- O ambiente verificado não possui Python, Docker ou Cargo acessíveis; npm está bloqueado pela política de execução do PowerShell.
+- Git e Node estão disponíveis e foram usados apenas para validações locais.
+- A validação do Compose e a execução de testes ficam pendentes até as ferramentas correspondentes estarem disponíveis.
+- Nenhum dado real, segredo ou credencial de produção pode entrar no repositório.

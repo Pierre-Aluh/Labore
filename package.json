@@ -1,0 +1,10 @@
+{
+  "name": "labore-portal",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Fundacao do Labore Portal",
+  "scripts": {
+    "quality": "npm run typecheck",
+    "typecheck": "tsc --noEmit"
+  }
+}

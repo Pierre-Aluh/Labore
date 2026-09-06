@@ -1,0 +1,40 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node and frontend
+node_modules/
+dist/
+build/
+.vite/
+
+# Tauri
+src-tauri/target/
+
+# IDE and OS
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local operational data
+storage/
+backup/
+logs/
+*.log
+
+# Test artifacts
+coverage/
+htmlcov/
