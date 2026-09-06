@@ -70,3 +70,8 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Fase 02 concluída com 3 testes aprovados e compilação Python aprovada.
 - O schema foi validado por metadata e migration, mas ainda não foi aplicado a um PostgreSQL porque o daemon Docker não foi usado nesta unidade.
 - A Fase 03 poderá iniciar sobre esta base, mantendo migrations versionadas.
+
+## 13. Validação de Integração Pendente
+
+- Os testes de autenticação executados nesta fase são unitários e de contrato HTTP.
+- O fluxo completo contra PostgreSQL deve ser executado quando o serviço local estiver operacional, usando somente dados sintéticos.

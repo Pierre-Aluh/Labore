@@ -53,3 +53,12 @@ Eventos mínimos:
 - Política formal de antivírus para upload, classificada em docs/DECISOES_PENDENTES.md.
 - Regras de retenção legal e descarte seguro.
 - Matriz de classificação de dados e níveis de acesso.
+
+## 11. Implementação da Fase 03
+
+- Senhas usam Argon2id via `argon2-cffi`.
+- Sessões usam tokens opacos aleatórios; somente o hash SHA-256 é persistido.
+- Sessões expiram, podem ser revogadas e são rejeitadas após expiração.
+- Cinco falhas consecutivas geram bloqueio temporário de 15 minutos.
+- Login bem-sucedido, falho e logout geram eventos de auditoria sem senha ou token.
+- Não foi criado usuário padrão e MFA permanece fora da versão atual.

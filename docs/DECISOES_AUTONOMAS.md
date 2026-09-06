@@ -24,3 +24,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: mantém o schema versionado e permite que as fases seguintes adicionem comportamento sem recriar fundação; evita dados iniciais não aprovados.
 - Impacto: custo baixo/médio; segurança favorecida pela ausência de contas padrão; manutenção simples por uma origem de schema rastreável.
 - Revisão: novas alterações devem usar migrations posteriores, nunca editar a migration aplicada.
+
+### A004 - Sessão opaca revogável
+- Escopo: Fase 03.
+- Decisão: emitir token aleatório ao cliente e persistir apenas seu SHA-256, com expiração de 12 horas e revogação server-side.
+- Justificativa: permite revogação imediata e reduz exposição de dados no token; é compatível com desktop e WebSocket futuro.
+- Impacto: custo baixo/médio; segurança alta; manutenção simples por usar a tabela `sessions` já prevista.
+- Revisão: duração e mecanismo de transporte podem mudar sem alterar o modelo de identidade.

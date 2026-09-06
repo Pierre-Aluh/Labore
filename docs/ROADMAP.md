@@ -55,4 +55,5 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 
 - Fase 01: concluída.
 - Fase 02: concluída em 2026-09-05, com schema conceitual e migration inicial testados localmente sem banco real.
-- Próxima fase: Fase 03, autenticação, sessões e controles de segurança.
+- Fase 03: concluída em 2026-09-05, com Argon2id, sessões opacas, revogação e bloqueio temporário testados.
+- Próxima fase: Fase 04, empresas, usuários, papéis, departamentos e permissões RBAC.

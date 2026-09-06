@@ -83,3 +83,11 @@ Exemplo conceitual:
 - Catálogo final de códigos de erro.
 - Estratégia de compatibilidade entre versões de cliente e API.
 - Contratos finais de paginação, ordenação, filtros e upload multipart.
+
+## 13. Implementação da Fase 03
+
+- `GET /health` é o endpoint operacional não protegido.
+- `POST /api/v1/auth/login` recebe credenciais e retorna sessão opaca.
+- `POST /api/v1/auth/logout` revoga a sessão Bearer apresentada.
+- `GET /api/v1/auth/me` valida a sessão e retorna somente identidade básica.
+- Nenhum endpoint de negócio foi criado nesta fase.
