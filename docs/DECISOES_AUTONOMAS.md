@@ -45,3 +45,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: não disponibilizar arquivos antes de uma futura política de antivírus/quarentena.
 - Impacto: custo baixo agora; segurança alta; manutenção média por exigir etapa operacional.
 - Revisão: pode ser conectado a scanner futuro sem alterar o contrato de documento.
+
+### A007 - Completude derivada da movimentação
+- Escopo: Fase 06.
+- Decisão: o status da movimentação é derivado dos tipos associados; `received` exige exatamente os três tipos obrigatórios.
+- Justificativa: impede que o status seja alterado manualmente para esconder pendências.
+- Impacto: custo baixo; segurança e integridade operacional altas; manutenção simples por regra centralizada.
+- Revisão: novos tipos exigem migration e atualização explícita da regra.

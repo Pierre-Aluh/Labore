@@ -111,3 +111,9 @@ Política obrigatória:
 - A migration `0002_seed_rbac` cria papéis, permissões e departamentos iniciais de forma idempotente.
 - Não há usuário administrador padrão nem senha inicial.
 - Vínculos `company_users` e `user_roles` suportam isolamento por empresa e RBAC.
+
+## 14. Implementação da Fase 06
+
+- `accounting_movements` representa a movimentação, e `movement_documents` associa os arquivos.
+- Os tipos obrigatórios são `DOCUMENTO`, `COBRANCA` e `COMPROVANTE`.
+- O status `received` só é permitido quando os três tipos estão associados.

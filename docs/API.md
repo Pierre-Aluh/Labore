@@ -106,3 +106,9 @@ Exemplo conceitual:
 - `GET /api/v1/documents/{document_id}/download`: download somente de documento disponível e acessível à empresa.
 - `POST /api/v1/documents/{document_id}/approve`: aprovação explícita e auditada.
 - O caminho físico nunca é recebido do cliente e não há endpoint de filesystem.
+
+## 16. Implementação da Fase 06
+
+- `POST /api/v1/movements`: cria movimentação e associa documentos por tipo.
+- `GET /api/v1/movements/{movement_id}`: consulta status e itens ausentes.
+- `POST /api/v1/movements/{movement_id}/complete`: recusa conclusão com HTTP 409 quando faltar arquivo obrigatório.
