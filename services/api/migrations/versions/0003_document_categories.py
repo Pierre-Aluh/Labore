@@ -16,9 +16,13 @@ CATEGORIES = [
 ]
 
 
+def sql_string(value: str) -> str:
+    return "'" + value.replace("'", "''") + "'"
+
+
 def upgrade() -> None:
     for code, name in CATEGORIES:
-        op.execute("INSERT INTO document_categories (id, code, name) VALUES (gen_random_uuid(), :code, :name) ON CONFLICT (code) DO NOTHING", {"code": code, "name": name})
+        op.execute(f"INSERT INTO document_categories (id, code, name) VALUES (gen_random_uuid(), {sql_string(code)}, {sql_string(name)}) ON CONFLICT (code) DO NOTHING")
 
 
 def downgrade() -> None:

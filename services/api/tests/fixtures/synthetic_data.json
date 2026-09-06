@@ -1,0 +1,11 @@
+{
+  "companies": [
+    {"legal_name": "Empresa Sintética Alfa", "tax_identifier": "SYNTH-ALFA-001"},
+    {"legal_name": "Empresa Sintética Beta", "tax_identifier": "SYNTH-BETA-002"}
+  ],
+  "users": [
+    {"email": "cliente.alfa@example.invalid", "role": "Cliente"},
+    {"email": "atendimento@example.invalid", "role": "Atendimento"}
+  ],
+  "notice": "Dados fictícios; não representam clientes reais."
+}

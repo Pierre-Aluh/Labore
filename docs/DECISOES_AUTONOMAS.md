@@ -94,3 +94,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: evita instalar cliente incompatível sem criar dependência externa ou mecanismo de atualização prematuro.
 - Impacto: custo baixo; segurança neutra por não expor dados sensíveis; manutenção simples.
 - Revisão: substituir por política semver formal antes de produção.
+
+### A014 - Homologação sem dados persistidos reais
+- Escopo: Fase 13.
+- Decisão: validar com fixtures `SYNTH-*`, domínios `example.invalid` e migrations offline quando PostgreSQL não estiver disponível.
+- Justificativa: mantém separação de ambientes e permite progresso sem risco de dados reais.
+- Impacto: custo baixo; segurança alta; manutenção alta por tornar testes reproduzíveis.
+- Revisão: trocar por dados anonimizados somente mediante aprovação legal e operacional.

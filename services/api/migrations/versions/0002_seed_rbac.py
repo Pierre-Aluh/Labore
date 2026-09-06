@@ -20,13 +20,17 @@ PERMISSIONS = [
 ]
 
 
+def sql_string(value: str) -> str:
+    return "'" + value.replace("'", "''") + "'"
+
+
 def upgrade() -> None:
     for role in ROLES:
-        op.execute("INSERT INTO roles (id, name) VALUES (gen_random_uuid(), :name) ON CONFLICT (name) DO NOTHING", {"name": role})
+        op.execute(f"INSERT INTO roles (id, name) VALUES (gen_random_uuid(), {sql_string(role)}) ON CONFLICT (name) DO NOTHING")
     for department in DEPARTMENTS:
-        op.execute("INSERT INTO departments (id, name) VALUES (gen_random_uuid(), :name) ON CONFLICT (name) DO NOTHING", {"name": department})
+        op.execute(f"INSERT INTO departments (id, name) VALUES (gen_random_uuid(), {sql_string(department)}) ON CONFLICT (name) DO NOTHING")
     for resource, action in PERMISSIONS:
-        op.execute("INSERT INTO permissions (id, resource, action) VALUES (gen_random_uuid(), :resource, :action) ON CONFLICT (resource, action) DO NOTHING", {"resource": resource, "action": action})
+        op.execute(f"INSERT INTO permissions (id, resource, action) VALUES (gen_random_uuid(), {sql_string(resource)}, {sql_string(action)}) ON CONFLICT (resource, action) DO NOTHING")
     op.execute("""
         INSERT INTO role_permissions (role_id, permission_id)
         SELECT r.id, p.id FROM roles r CROSS JOIN permissions p

@@ -86,3 +86,11 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 
 - Scripts PowerShell são validados por parser e testes de contrato.
 - Não executar restore real em desenvolvimento sem pacote sintético e confirmação operacional.
+
+## 16. Fase 13 Homologação
+
+- Suíte backend: 37 testes aprovados.
+- Frontend: typecheck, Vitest e build aprovados.
+- Alembic: geração offline da cadeia até `head` aprovada.
+- Fixture sintética em `services/api/tests/fixtures/synthetic_data.json`.
+- Aplicação real das migrations aguarda PostgreSQL/Docker operacional.

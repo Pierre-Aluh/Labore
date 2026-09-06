@@ -123,3 +123,9 @@ Política obrigatória:
 - `bank_accounts` guarda somente instituição e identificador mascarado.
 - `documents.bank_account_id` vincula extratos à conta sem armazenar credenciais bancárias.
 - `competency_requirements` representa investimentos esperados por competência.
+
+## 16. Validação da Fase 13
+
+- A cadeia Alembic até a revisão 0006 gera SQL offline sem conexão.
+- Seeds usam valores estáticos controlados e são idempotentes.
+- Aplicação em PostgreSQL deve ser validada em ambiente sintético antes de homologação.
