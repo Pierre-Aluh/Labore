@@ -119,3 +119,11 @@ Exemplo conceitual:
 - `GET /api/v1/companies/{company_id}/bank-accounts`: lista contas acessíveis.
 - `POST /api/v1/bank-accounts/{account_id}/statements/{document_id}`: associa extrato à conta.
 - `POST /api/v1/investment-requirements`: cria requisito de investimento por competência.
+
+## 18. Implementação da Fase 08
+
+- `POST /api/v1/tickets`: abre chamado vinculado à empresa e departamento opcional.
+- `GET /api/v1/tickets/companies/{company_id}`: lista chamados acessíveis.
+- `POST /api/v1/tickets/{ticket_id}/participants`: atribui participante vinculado à empresa.
+- `POST /api/v1/tickets/{ticket_id}/close` e `/reopen`: controlam o ciclo auditado.
+- Mensagens e WebSocket são implementados na Fase 09.

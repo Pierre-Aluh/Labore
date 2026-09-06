@@ -59,3 +59,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: o escopo não autoriza integração bancária externa e não há necessidade de custodiar credenciais.
 - Impacto: custo baixo; segurança alta; manutenção simples e reversível.
 - Revisão: integração futura exigirá nova análise de segurança e consentimento explícito.
+
+### A009 - Ciclo inicial de chamados
+- Escopo: Fase 08.
+- Decisão: permitir `open`, `closed` e `reopened`, preservando os estados de espera para a camada de mensagens da Fase 09.
+- Justificativa: entregar o núcleo de atendimento sem inventar SLA não aprovado.
+- Impacto: custo baixo; segurança média/alta pela auditoria; manutenção simples e extensível.
+- Revisão: SLA e transições finais devem ser fechados antes da homologação.

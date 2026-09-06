@@ -77,3 +77,9 @@ Eventos mínimos:
 - Download verifica sessão, permissão, vínculo com empresa e estado disponível.
 - Falhas de persistência removem o arquivo físico criado e fazem rollback dos metadados.
 - Não há antivírus integrado nesta fase; a aprovação é deliberadamente separada e a política continua pendente.
+
+## 14. Implementação da Fase 08
+
+- Participantes só podem ser associados se estiverem vinculados à mesma empresa.
+- Fechamento, reabertura, atribuição e abertura geram auditoria.
+- O chamado não permite acesso por ID sem validação de vínculo empresarial.
