@@ -97,3 +97,11 @@ Política obrigatória:
 - Matriz completa de status e transições, classificada em docs/DECISOES_PENDENTES.md.
 - Política de particionamento de audit_logs e documentos por volume, a decidir somente após dimensionamento.
 - Modelo final de empresa, competência e requisito esperado, incluindo unicidade e período.
+
+## 12. Implementação da Fase 02
+
+- Base declarativa em `services/api/app/models.py`.
+- Migration inicial em `services/api/migrations/versions/0001_initial_schema.py`.
+- UUIDs PostgreSQL com `pgcrypto` e JSONB para metadados de auditoria.
+- Não foram criados dados iniciais, usuários, migrations destrutivas ou binários.
+- A migration deve ser aplicada somente em banco local/homologação controlado.

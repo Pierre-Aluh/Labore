@@ -64,3 +64,9 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Git e Node estão disponíveis e foram usados apenas para validações locais.
 - A validação do Compose e a execução de testes ficam pendentes até as ferramentas correspondentes estarem disponíveis.
 - Nenhum dado real, segredo ou credencial de produção pode entrar no repositório.
+
+## 12. Estado da Execução Contínua
+
+- Fase 02 concluída com 3 testes aprovados e compilação Python aprovada.
+- O schema foi validado por metadata e migration, mas ainda não foi aplicado a um PostgreSQL porque o daemon Docker não foi usado nesta unidade.
+- A Fase 03 poderá iniciar sobre esta base, mantendo migrations versionadas.

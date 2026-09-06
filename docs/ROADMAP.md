@@ -50,3 +50,9 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 - Estratégia final de atualização do desktop.
 - Política detalhada de backup externo.
 - Decisões obrigatórias e decisões futuras estão classificadas em docs/DECISOES_PENDENTES.md.
+
+## 8. Estado de Execução
+
+- Fase 01: concluída.
+- Fase 02: concluída em 2026-09-05, com schema conceitual e migration inicial testados localmente sem banco real.
+- Próxima fase: Fase 03, autenticação, sessões e controles de segurança.

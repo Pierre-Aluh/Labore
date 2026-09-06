@@ -73,6 +73,7 @@ Registrar ao menos:
 - Política legal detalhada de LGPD/retenção.
 
 ## 13. Estado Atual do Projeto
-- A etapa atual é exclusivamente de especificação e documentação.
-- Não criar código funcional, banco, containers, telas ou instalar dependências até aprovação explícita da Fase 01.
+- A Fase 01 foi concluída e a autorização contínua para as Fases 02 a 14 foi recebida em 2026-09-05.
+- Implementar fases somente na ordem definida em SPECIFICATION.md e ROADMAP.md, com testes, documentação, decisão autônoma e commit por fase.
+- Não publicar em produção, configurar serviços externos, usar credenciais reais ou usar dados reais de clientes.
 - A matriz de cobertura dos 24 capítulos está em docs/DECISOES_PENDENTES.md.
