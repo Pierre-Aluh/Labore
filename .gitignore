@@ -31,7 +31,7 @@ Thumbs.db
 
 # Local operational data
 storage/
-backup/
+/backup/
 logs/
 *.log
 
