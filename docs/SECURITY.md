@@ -90,3 +90,9 @@ Eventos mínimos:
 - Mensagens HTTP e WebSocket geram auditoria sem conteúdo sensível em metadata.
 - Notificações são criadas apenas para participantes do chamado, excluindo o autor.
 - Exportação automática para máquinas clientes não foi criada; exportação manual permanece futura.
+
+## 16. CORS local
+
+- CORS não é aberto globalmente.
+- As origens locais permitidas são explícitas e limitadas às portas do Vite de homologação.
+- Origens de produção deverão ser configuradas separadamente, sem usar curingas.

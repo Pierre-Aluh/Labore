@@ -140,3 +140,9 @@ Exemplo conceitual:
 - `GET /api/v1/meta/compatibility?client_version=...` informa compatibilidade sem expor dados de negócio.
 - O endpoint não substitui autorização de recursos.
 - O desktop mantém atualização automática desativada até assinatura e rollback serem homologados.
+
+## 21. Homologação local: CORS
+
+- A API permite somente `http://127.0.0.1:1420` e `http://localhost:1420` na homologação local.
+- O preflight de login responde HTTP 200 com `Access-Control-Allow-Origin` correspondente.
+- Origens não listadas não recebem autorização CORS.

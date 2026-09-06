@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     document_trash_retention_days: int = 30
     storage_root: str = "./storage/clientes"
     max_upload_size_bytes: int = 50 * 1024 * 1024
+    cors_origins: str = "http://127.0.0.1:1420,http://localhost:1420"
 
     model_config = SettingsConfigDict(
         env_file=(".env", ".env.local"),

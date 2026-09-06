@@ -115,3 +115,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: evita depender de variáveis exportadas no shell e mantém segredos fora do repositório.
 - Impacto: custo baixo; segurança média/alta; manutenção melhor por tornar o ambiente explícito.
 - Revisão: substituir por cofre de segredos somente em implantação futura.
+
+### A017 - CORS local restrito
+- Escopo: homologação local.
+- Decisão: permitir somente `localhost:1420` e `127.0.0.1:1420` na API.
+- Justificativa: o navegador exige preflight entre Vite e FastAPI, mas liberar qualquer origem seria inseguro.
+- Impacto: custo baixo; segurança alta; manutenção simples por configuração explícita.
+- Revisão: definir origens produtivas antes da implantação, sem wildcard.
