@@ -63,4 +63,5 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 - Fase 08: concluída em 2026-09-05, com abertura, participantes, encerramento e reabertura auditados.
 - Fase 09: concluída em 2026-09-05, com mensagens persistentes, notificações internas e WebSocket autenticado.
 - Fase 10: concluída em 2026-09-05 no frontend, com interface única por papel e build Vite aprovado; compilação Tauri bloqueada por MSVC.
-- Próxima fase: Fase 11, backups e recuperação.
+- Fase 11: concluída em 2026-09-05, com scripts seguros de backup/restore e runbook de recuperação.
+- Próxima fase: Fase 12, instalador, atualização controlada e compatibilidade.

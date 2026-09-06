@@ -70,3 +70,10 @@ Mitigações mínimas:
 - Ferramenta final de monitoramento.
 - Frequência oficial de backup e restauração de teste.
 - Procedimento de gestão e restauração de segredos de produção.
+
+## 10. Implementação da Fase 11
+
+- `infra/scripts/backup.ps1` cria dump PostgreSQL e arquivo do storage.
+- `infra/scripts/restore.ps1` simula por padrão e exige `-ConfirmRestore` para agir.
+- Pacotes comuns não incluem segredos.
+- O roteiro de recuperação está em `docs/RECOVERY_RUNBOOK.md`.

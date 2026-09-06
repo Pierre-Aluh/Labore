@@ -81,3 +81,8 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Dependências frontend: React, Vite, TypeScript, Tauri API/CLI e Vitest.
 - Validações concluídas: `npm.cmd run typecheck`, `npm.cmd run test` e `npm.cmd run build`.
 - Validação pendente: `cargo check` requer linker MSVC disponível.
+
+## 15. Fase 11 Operação
+
+- Scripts PowerShell são validados por parser e testes de contrato.
+- Não executar restore real em desenvolvimento sem pacote sintético e confirmação operacional.

@@ -80,3 +80,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: atende a arquitetura aprovada e evita produtos separados por perfil.
 - Impacto: custo médio; segurança depende da API como autoridade; manutenção alta por compartilhar componentes.
 - Revisão: novas áreas devem respeitar permissões server-side.
+
+### A012 - Restore explicitamente confirmado
+- Escopo: Fase 11.
+- Decisão: o script de restauração sempre inicia em simulação e exige `-ConfirmRestore` + `ShouldProcess`.
+- Justificativa: reduz risco de substituir banco/storage por engano.
+- Impacto: custo baixo; segurança operacional alta; manutenção simples.
+- Revisão: qualquer automação futura deve preservar confirmação e logs.
