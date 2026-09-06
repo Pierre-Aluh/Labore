@@ -94,3 +94,10 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Alembic: geração offline da cadeia até `head` aprovada.
 - Fixture sintética em `services/api/tests/fixtures/synthetic_data.json`.
 - Aplicação real das migrations aguarda PostgreSQL/Docker operacional.
+
+## 17. Homologação local executada
+
+- PostgreSQL, API e Vite foram executados localmente em 2026-09-06.
+- Fluxos sintéticos de RBAC, documentos, chamados, mensagens, notificações e WebSocket foram exercitados.
+- Backup e simulação de restore foram executados; restore destrutivo não foi executado.
+- `config/.env.local`, `backup/` e dados sintéticos locais permanecem fora do Git.

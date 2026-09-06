@@ -2,14 +2,16 @@
 param(
     [string]$OutputRoot = "./backup",
     [string]$StorageRoot = "./storage/clientes",
-    [string]$ComposeFile = "./compose.yml"
+    [string]$ComposeFile = "./compose.yml",
+    [string]$EnvFile = "./config/.env.local"
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
-$destination = Join-Path (Resolve-Path $OutputRoot) "labore-$timestamp"
+$outputPath = New-Item -ItemType Directory -Path $OutputRoot -Force
+$destination = Join-Path $outputPath.FullName "labore-$timestamp"
 New-Item -ItemType Directory -Path $destination -Force | Out-Null
 
 if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
@@ -23,7 +25,8 @@ $databaseUser = if ($env:POSTGRES_USER) { $env:POSTGRES_USER } else { "labore_ap
 $databaseName = if ($env:POSTGRES_DB) { $env:POSTGRES_DB } else { "labore" }
 
 Write-Host "Criando dump consistente do PostgreSQL..."
-docker compose -f $ComposeFile --profile local-infra exec -T postgres pg_dump --clean --if-exists --no-owner --no-privileges -U $databaseUser $databaseName | Out-File -FilePath $databaseDump -Encoding utf8
+$composeArgs = @("compose", "--env-file", $EnvFile, "-f", $ComposeFile, "--profile", "local-infra")
+docker @composeArgs exec -T postgres pg_dump --clean --if-exists --no-owner --no-privileges -U $databaseUser $databaseName | Out-File -FilePath $databaseDump -Encoding utf8
 
 if (Test-Path $StorageRoot) {
     Write-Host "Compactando storage físico..."

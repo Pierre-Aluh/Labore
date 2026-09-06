@@ -11,6 +11,21 @@
 7. Executar frontend com `npm.cmd run dev`.
 8. Usar somente fixtures sintéticas e validar RBAC, documentos, chamados, chat e backup.
 
+### Resultado da homologação em 2026-09-06
+
+- PostgreSQL Compose: saudável e aceitando conexões na porta local 5432.
+- Alembic: aplicado até `0006_ticket_permissions`.
+- API: `/health` retornou 200; compatibilidade `0.1.0` retornou 200; rota protegida sem sessão retornou 401.
+- Frontend: Vite respondeu 200 e serviu o entrypoint React.
+- RBAC: cliente recebeu 403 em rota administrativa; administrador recebeu 200.
+- Documentos: upload 201 em quarentena, download antes da aprovação 404, aprovação 200 e download posterior 200.
+- Chamados/chat: criação 201, participante 204, mensagem 201 e WebSocket entregando evento `message`.
+- Notificações: administrador recebeu uma notificação sintética.
+- Backup: dump local criado com sucesso; simulação de restore concluída sem ação destrutiva.
+- Dados usados: somente usuários `example.invalid`, empresa `SYNTH-*` e arquivo sintético.
+
+Os processos da API e do frontend permanecem ativos para inspeção local. O backup gerado está em diretório ignorado pelo Git.
+
 ## Produção futura
 
 1. Aprovar LGPD, retenção, SLA, RPO/RTO e responsáveis.

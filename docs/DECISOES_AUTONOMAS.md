@@ -108,3 +108,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: produção exige credenciais, decisões legais, backup, assinatura e autorização expressa.
 - Impacto: custo operacional futuro; segurança alta; manutenção melhor por tornar o gate explícito.
 - Revisão: somente mediante autorização específica de implantação.
+
+### A016 - EnvFile explícito nos scripts operacionais
+- Escopo: homologação local/Fase 11.
+- Decisão: backup e restore recebem `-EnvFile` e usam `config/.env.local` explicitamente.
+- Justificativa: evita depender de variáveis exportadas no shell e mantém segredos fora do repositório.
+- Impacto: custo baixo; segurança média/alta; manutenção melhor por tornar o ambiente explícito.
+- Revisão: substituir por cofre de segredos somente em implantação futura.
