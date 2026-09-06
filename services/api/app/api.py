@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from app.auth import authenticate_user, revoke_session
 from app.db import get_db
 from app.dependencies import get_current_user
-from app.models import SessionRecord, User
+from app.models import CompanyUser, Role, SessionRecord, User, UserRole
 from app.security import hash_session_token
 
 router = APIRouter(prefix="/api/v1")
@@ -32,6 +32,23 @@ class UserResponse(BaseModel):
     id: str
     email: str
     display_name: str
+    roles: list[str] = []
+    company_ids: list[str] = []
+
+
+def get_user_roles(session: Session, user_id: object) -> list[str]:
+    statement = (
+        select(Role.name)
+        .join(UserRole, UserRole.role_id == Role.id)
+        .where(UserRole.user_id == user_id)
+        .order_by(Role.name)
+    )
+    return list(session.scalars(statement).all())
+
+
+def get_user_company_ids(session: Session, user_id: object) -> list[str]:
+    statement = select(CompanyUser.company_id).where(CompanyUser.user_id == user_id)
+    return [str(company_id) for company_id in session.scalars(statement).all()]
 
 
 @router.post("/auth/login", response_model=LoginResponse)
@@ -55,5 +72,11 @@ def logout(
 
 
 @router.get("/auth/me", response_model=UserResponse)
-def me(user: User = Depends(get_current_user)) -> UserResponse:
-    return UserResponse(id=str(user.id), email=user.email, display_name=user.display_name)
+def me(user: User = Depends(get_current_user), session: Session = Depends(get_db)) -> UserResponse:
+    return UserResponse(
+        id=str(user.id),
+        email=user.email,
+        display_name=user.display_name,
+        roles=get_user_roles(session, user.id),
+        company_ids=get_user_company_ids(session, user.id),
+    )

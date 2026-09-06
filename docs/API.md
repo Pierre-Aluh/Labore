@@ -146,3 +146,10 @@ Exemplo conceitual:
 - A API permite somente `http://127.0.0.1:1420` e `http://localhost:1420` na homologação local.
 - O preflight de login responde HTTP 200 com `Access-Control-Allow-Origin` correspondente.
 - Origens não listadas não recebem autorização CORS.
+
+## 22. Painéis por perfil
+
+- `/api/v1/auth/me` retorna papéis e empresas vinculadas para a navegação do desktop.
+- `/api/v1/workspace/summary`, `/companies`, `/documents` e `/tickets` formam o backend operacional do colaborador, sempre limitado às empresas vinculadas.
+- O cliente usa listagem, upload, aprovação/download quando autorizado, chamados, mensagens e notificações.
+- O administrador possui consultas protegidas de empresas, usuários, papéis e auditoria.

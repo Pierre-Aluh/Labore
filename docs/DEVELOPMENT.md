@@ -101,3 +101,11 @@ Para documentação, o critério de pronto inclui matriz de cobertura dos capít
 - Fluxos sintéticos de RBAC, documentos, chamados, mensagens, notificações e WebSocket foram exercitados.
 - Backup e simulação de restore foram executados; restore destrutivo não foi executado.
 - `config/.env.local`, `backup/` e dados sintéticos locais permanecem fora do Git.
+
+## 18. Correção de painéis por perfil
+
+- O login agora consulta `/api/v1/auth/me` para obter papéis e empresas.
+- Cliente possui views consumindo documentos, upload, chamados, mensagens e notificações.
+- Colaborador possui API `/workspace` para empresas, documentos, chamados e resumo operacional.
+- Administrador possui consultas de empresas, usuários, papéis e auditoria.
+- Typecheck, build e suíte backend continuam aprovados após a alteração.

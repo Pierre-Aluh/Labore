@@ -52,6 +52,30 @@ class DepartmentResponse(BaseModel):
     status: str
 
 
+class AuditResponse(BaseModel):
+    id: UUID
+    action: str
+    target_type: str
+    outcome: str
+    created_at: str
+
+
+@router.get("/users", response_model=list[UserResponse])
+def list_users(
+    session: Session = Depends(get_db),
+    _: User = Depends(require_permission("users", "view")),
+) -> list[User]:
+    return list(session.scalars(select(User).order_by(User.display_name)).all())
+
+
+@router.get("/audit", response_model=list[AuditResponse])
+def list_audit(
+    session: Session = Depends(get_db),
+    _: User = Depends(require_permission("audit", "view")),
+) -> list[AuditLog]:
+    return list(session.scalars(select(AuditLog).order_by(AuditLog.created_at.desc()).limit(100)).all())
+
+
 @router.post("/companies", response_model=CompanyResponse, status_code=status.HTTP_201_CREATED)
 def create_company(
     payload: CompanyCreate,

@@ -104,3 +104,9 @@ Sugestão de domínios de UI:
 - A interface mostra estado de ambiente e falha de conexão sem acessar filesystem.
 - Typecheck, teste Vitest e build Vite passam.
 - Cargo/Tauri aguarda Visual Studio Build Tools/MSVC, conforme docs/BLOQUEIOS_DO_USUARIO.md.
+
+## 13. Views por papel
+
+- O frontend resolve o papel a partir da API; não há mais fallback fixo para cliente após login bem-sucedido.
+- Cliente, colaborador e administrador compartilham o shell Tauri, mas renderizam áreas e contratos de dados diferentes.
+- A API continua sendo a autoridade; a navegação não substitui as verificações RBAC server-side.

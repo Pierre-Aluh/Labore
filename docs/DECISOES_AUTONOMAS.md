@@ -122,3 +122,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: o navegador exige preflight entre Vite e FastAPI, mas liberar qualquer origem seria inseguro.
 - Impacto: custo baixo; segurança alta; manutenção simples por configuração explícita.
 - Revisão: definir origens produtivas antes da implantação, sem wildcard.
+
+### A018 - Perfil determinado pelo backend
+- Escopo: correção dos painéis cliente, colaborador e administrador.
+- Decisão: o desktop não escolhe mais `cliente` após qualquer login; usa papéis e empresas retornados pela API.
+- Justificativa: evita exposição visual incorreta e mantém a UI coerente com RBAC.
+- Impacto: custo baixo/médio; segurança alta por não confiar no cliente; manutenção melhor por contrato explícito.
+- Revisão: novos papéis devem ser adicionados ao mapeamento com testes.

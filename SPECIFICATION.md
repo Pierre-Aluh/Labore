@@ -2,7 +2,7 @@
 ## Sistema de Gestão Documental e Atendimento Contábil
 ### VERSAO 1.0
 
-> Status: especificação documental em revisão. Nenhuma implementação funcional está autorizada nesta etapa.
+> Status: especificação funcional em evolução. A implementação local foi autorizada; produção continua bloqueada sem aprovação expressa.
 
 ## 1. Objetivo
 Definir a especificação técnica oficial do Labore Portal para orientar construção, operação e evolução do produto sem ambiguidades arquiteturais.

@@ -7,6 +7,7 @@ from app.chat_api import router as chat_router
 from app.compatibility import router as compatibility_router
 from app.movement_api import router as movement_router
 from app.ticket_api import router as ticket_router
+from app.workspace_api import router as workspace_router
 
 router = APIRouter()
 router.include_router(admin_router)
@@ -16,3 +17,4 @@ router.include_router(bank_router)
 router.include_router(chat_router)
 router.include_router(compatibility_router)
 router.include_router(ticket_router)
+router.include_router(workspace_router)

@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from app.db import get_db
 from app.dependencies import get_current_user
-from app.models import AuditLog, CompanyUser, Document, DocumentCategory, User
+from app.models import AuditLog, CompanyUser, Competency, Document, DocumentCategory, User
 from app.rbac import require_permission
 from app.storage import persist_quarantined, storage_path, validate_extension
 
@@ -25,9 +25,40 @@ class DocumentResponse(BaseModel):
     checksum_hash: str
 
 
+class CompetencyResponse(BaseModel):
+    id: UUID
+    year: int
+    month: int
+    status: str
+
+
+class CategoryResponse(BaseModel):
+    id: UUID
+    code: str
+    name: str
+
+
 def ensure_company_access(session: Session, user: User, company_id: UUID) -> None:
     if session.scalar(select(CompanyUser).where(CompanyUser.company_id == company_id, CompanyUser.user_id == user.id)) is None:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Company access denied")
+
+
+@router.get("/categories", response_model=list[CategoryResponse])
+def list_categories(
+    session: Session = Depends(get_db),
+    _: User = Depends(require_permission("documents", "view")),
+) -> list[DocumentCategory]:
+    return list(session.scalars(select(DocumentCategory).order_by(DocumentCategory.name)).all())
+
+
+@router.get("/competencies", response_model=list[CompetencyResponse])
+def list_competencies(
+    company_id: UUID,
+    session: Session = Depends(get_db),
+    user: User = Depends(require_permission("documents", "view")),
+) -> list[Competency]:
+    ensure_company_access(session, user, company_id)
+    return list(session.scalars(select(Competency).where(Competency.company_id == company_id).order_by(Competency.year.desc(), Competency.month.desc())).all())
 
 
 @router.post("", response_model=DocumentResponse, status_code=status.HTTP_201_CREATED)
@@ -63,6 +94,25 @@ def upload_document(
         destination.unlink(missing_ok=True)
         session.rollback()
         raise
+
+
+@router.get("", response_model=list[DocumentResponse])
+def list_documents(
+    company_id: UUID | None = None,
+    session: Session = Depends(get_db),
+    user: User = Depends(require_permission("documents", "view")),
+) -> list[Document]:
+    statement = select(Document).where(Document.status == "available")
+    if company_id is not None:
+        ensure_company_access(session, user, company_id)
+        statement = statement.where(Document.company_id == company_id)
+    else:
+        statement = statement.where(
+            Document.company_id.in_(
+                select(CompanyUser.company_id).where(CompanyUser.user_id == user.id)
+            )
+        )
+    return list(session.scalars(statement.order_by(Document.created_at.desc())).all())
 
 
 @router.get("/{document_id}/download")
