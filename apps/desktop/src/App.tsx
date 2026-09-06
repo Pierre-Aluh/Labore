@@ -52,8 +52,8 @@ export function App() {
 
   if (!session) return <LoginScreen onSubmit={handleLogin} error={loginError} />;
   if (session.role === "cliente" && selectedPage === "Visão geral") return <ClientHome session={session} onNavigate={setSelectedPage} onLogout={() => setSession(null)} />;
-  return <div className="shell">
-    <aside className="sidebar"><div className="brand"><span className="brand-mark">L</span><span>Labore Portal</span></div><div className="profile"><span className="avatar">{session.displayName.slice(0, 1).toUpperCase()}</span><div><strong>{session.displayName}</strong><small>{session.role}</small></div></div><nav>{navigation[session.role].map((item) => <button className={selectedPage === item ? "nav-item active" : "nav-item"} key={item} onClick={() => setSelectedPage(item)}>{item}</button>)}</nav><button className="logout" onClick={() => setSession(null)}>Sair</button></aside>
+  return <div className={`shell ${session.role}`}>
+    <aside className="sidebar"><div className="brand"><img src="/assets/labore-logo.png" alt="Labore" /></div><div className="profile"><span className="avatar">{session.displayName.slice(0, 1).toUpperCase()}</span><div><strong>{session.displayName}</strong><small>{session.role}</small></div></div><nav>{navigation[session.role].map((item) => <button className={selectedPage === item ? "nav-item active" : "nav-item"} key={item} onClick={() => setSelectedPage(item)}>{item}</button>)}</nav><button className="logout" onClick={() => setSession(null)}>Sair</button></aside>
     <main className="content"><header className="topbar"><div><span className="eyebrow">Portal privado</span><h1>{selectedPage}</h1></div><span className="connection"><i /> API conectada</span></header><Workspace page={selectedPage} session={session} /></main>
   </div>;
 }
@@ -66,10 +66,10 @@ function ClientHome({ session, onNavigate, onLogout }: { session: Session; onNav
     </div>
     <img className="client-home-logo" src="/assets/labore-logo.png" alt="Labore" />
     <div className="client-home-actions" aria-label="Atalhos principais do cliente">
-      <button className="client-hotspot support" onClick={() => onNavigate("Chamados")} aria-label="Abrir suporte"><span>Suporte</span></button>
-      <button className="client-hotspot accounting" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir documentos da contabilidade"><span>Documentos da contabilidade</span></button>
-      <button className="client-hotspot upload" onClick={() => onNavigate("Enviar documentos")} aria-label="Enviar documentos"><span>Enviar documentos</span></button>
-      <button className="client-hotspot finance" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir financeiro"><span>Financeiro</span></button>
+      <button className="client-hotspot support" onClick={() => onNavigate("Chamados")} aria-label="Abrir suporte"><span className="home-icon">◌</span><strong>Suporte</strong></button>
+      <button className="client-hotspot accounting" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir documentos da contabilidade"><span className="home-icon">▤</span><strong>Documentos da<br />contabilidade</strong></button>
+      <button className="client-hotspot upload" onClick={() => onNavigate("Enviar documentos")} aria-label="Enviar documentos"><span className="home-icon">↑</span><strong>Enviar<br />documentos</strong></button>
+      <button className="client-hotspot finance" onClick={() => onNavigate("Documentos da contabilidade")} aria-label="Abrir financeiro"><span className="home-icon">◇</span><strong>Financeiro</strong></button>
     </div>
   </main>;
 }
@@ -121,4 +121,4 @@ function Panel({ title, detail, children }: { title: string; detail: string; chi
 function List({ items, empty }: { items: string[]; empty: string }) { return items.length ? <ul className="data-list">{items.map((item) => <li key={item}>{item}</li>)}</ul> : <div className="empty-state">{empty}</div>; }
 function Notice({ message }: { message: string }) { return message ? <div className="notice">{message}</div> : null; }
 function EmptyState({ title, detail }: { title: string; detail: string }) { return <section className="workspace"><div className="empty-state"><h2>{title}</h2><p>{detail}</p></div></section>; }
-function LoginScreen({ onSubmit, error }: { onSubmit: (event: FormEvent<HTMLFormElement>) => void; error: string }) { return <main className="login-page"><section className="login-intro"><div className="brand"><span className="brand-mark">L</span><span>Labore Portal</span></div><div><span className="eyebrow">Gestão contábil, com clareza</span><h1>O trabalho importante, em um só lugar.</h1><p>Documentos, pendências e atendimento organizados por empresa e competência.</p></div></section><form className="login-card" onSubmit={onSubmit}><span className="eyebrow">Acesso seguro</span><h2>Entrar no portal</h2><label>E-mail<input name="email" type="email" autoComplete="username" required /></label><label>Senha<input name="password" type="password" autoComplete="current-password" required /></label>{error && <div className="error">{error}</div>}<button className="primary" type="submit">Entrar</button><small>Ambiente: desenvolvimento</small></form></main>; }
+function LoginScreen({ onSubmit, error }: { onSubmit: (event: FormEvent<HTMLFormElement>) => void; error: string }) { return <main className="login-page"><section className="login-intro"><div className="brand"><img src="/assets/labore-logo.png" alt="Labore" /></div><div><span className="eyebrow">Gestão contábil, com clareza</span><h1>O trabalho importante, em um só lugar.</h1><p>Documentos, pendências e atendimento organizados por empresa e competência.</p></div></section><form className="login-card" onSubmit={onSubmit}><span className="eyebrow">Acesso seguro</span><h2>Entrar no portal</h2><label>E-mail<input name="email" type="email" autoComplete="username" required /></label><label>Senha<input name="password" type="password" autoComplete="current-password" required /></label>{error && <div className="error">{error}</div>}<button className="primary" type="submit">Entrar</button><small>Ambiente: desenvolvimento</small></form></main>; }
