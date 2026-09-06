@@ -83,3 +83,10 @@ Eventos mínimos:
 - Participantes só podem ser associados se estiverem vinculados à mesma empresa.
 - Fechamento, reabertura, atribuição e abertura geram auditoria.
 - O chamado não permite acesso por ID sem validação de vínculo empresarial.
+
+## 15. Implementação da Fase 09
+
+- WebSocket valida token opaco, revogação, expiração e participação no chamado.
+- Mensagens HTTP e WebSocket geram auditoria sem conteúdo sensível em metadata.
+- Notificações são criadas apenas para participantes do chamado, excluindo o autor.
+- Exportação automática para máquinas clientes não foi criada; exportação manual permanece futura.

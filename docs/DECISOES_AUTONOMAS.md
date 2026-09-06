@@ -66,3 +66,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: entregar o núcleo de atendimento sem inventar SLA não aprovado.
 - Impacto: custo baixo; segurança média/alta pela auditoria; manutenção simples e extensível.
 - Revisão: SLA e transições finais devem ser fechados antes da homologação.
+
+### A010 - Notificação interna persistente
+- Escopo: Fase 09.
+- Decisão: persistir notificações no PostgreSQL e usar WebSocket somente como entrega em tempo real, sem depender dele para histórico.
+- Justificativa: garante recuperação após indisponibilidade de rede e permite futura entrega por e-mail.
+- Impacto: custo baixo/médio; segurança média/alta; manutenção alta por separar persistência e transporte.
+- Revisão: canais externos ficam fora da V1.

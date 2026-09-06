@@ -127,3 +127,10 @@ Exemplo conceitual:
 - `POST /api/v1/tickets/{ticket_id}/participants`: atribui participante vinculado à empresa.
 - `POST /api/v1/tickets/{ticket_id}/close` e `/reopen`: controlam o ciclo auditado.
 - Mensagens e WebSocket são implementados na Fase 09.
+
+## 19. Implementação da Fase 09
+
+- `POST/GET /api/v1/tickets/{ticket_id}/messages`: mensagens persistentes e autorizadas.
+- `GET /api/v1/notifications`: notificações internas do usuário.
+- `POST /api/v1/notifications/{notification_id}/read`: marca notificação própria como lida.
+- `WS /api/v1/ws/tickets/{ticket_id}?token=...`: canal autenticado de tempo real; sessão expirada/revogada é rejeitada.

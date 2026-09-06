@@ -61,4 +61,5 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 - Fase 06: concluída em 2026-09-05, com associação dos três documentos obrigatórios e cálculo de completude.
 - Fase 07: concluída em 2026-09-05, com contas mascaradas, vínculo de extratos e requisitos de investimentos.
 - Fase 08: concluída em 2026-09-05, com abertura, participantes, encerramento e reabertura auditados.
-- Próxima fase: Fase 09, chat em tempo real e notificações internas.
+- Fase 09: concluída em 2026-09-05, com mensagens persistentes, notificações internas e WebSocket autenticado.
+- Próxima fase: Fase 10, interfaces desktop.
