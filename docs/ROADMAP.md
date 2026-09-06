@@ -59,4 +59,5 @@ A Fase 01 só começa após aprovação explícita do usuário e fechamento das 
 - Fase 04: concluída em 2026-09-05, com catálogo RBAC, vínculos e rotas administrativas protegidas.
 - Fase 05: concluída em 2026-09-05, com upload em quarentena, hash, caminhos controlados e download autorizado.
 - Fase 06: concluída em 2026-09-05, com associação dos três documentos obrigatórios e cálculo de completude.
-- Próxima fase: Fase 07, extratos bancários, contas e investimentos.
+- Fase 07: concluída em 2026-09-05, com contas mascaradas, vínculo de extratos e requisitos de investimentos.
+- Próxima fase: Fase 08, chamados.

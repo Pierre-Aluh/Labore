@@ -117,3 +117,9 @@ Política obrigatória:
 - `accounting_movements` representa a movimentação, e `movement_documents` associa os arquivos.
 - Os tipos obrigatórios são `DOCUMENTO`, `COBRANCA` e `COMPROVANTE`.
 - O status `received` só é permitido quando os três tipos estão associados.
+
+## 15. Implementação da Fase 07
+
+- `bank_accounts` guarda somente instituição e identificador mascarado.
+- `documents.bank_account_id` vincula extratos à conta sem armazenar credenciais bancárias.
+- `competency_requirements` representa investimentos esperados por competência.

@@ -161,6 +161,7 @@ class Document(TimestampMixin, Base):
     company_id: Mapped[UUID] = mapped_column(ForeignKey("companies.id", ondelete="RESTRICT"))
     competency_id: Mapped[UUID | None] = mapped_column(ForeignKey("competencies.id", ondelete="SET NULL"))
     category_id: Mapped[UUID] = mapped_column(ForeignKey("document_categories.id", ondelete="RESTRICT"))
+    bank_account_id: Mapped[UUID | None] = mapped_column(ForeignKey("bank_accounts.id", ondelete="SET NULL"))
     original_filename: Mapped[str] = mapped_column(String(255))
     normalized_filename: Mapped[str] = mapped_column(String(255))
     logical_path: Mapped[str] = mapped_column(String(1024), unique=True)

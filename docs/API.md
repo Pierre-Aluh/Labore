@@ -112,3 +112,10 @@ Exemplo conceitual:
 - `POST /api/v1/movements`: cria movimentação e associa documentos por tipo.
 - `GET /api/v1/movements/{movement_id}`: consulta status e itens ausentes.
 - `POST /api/v1/movements/{movement_id}/complete`: recusa conclusão com HTTP 409 quando faltar arquivo obrigatório.
+
+## 17. Implementação da Fase 07
+
+- `POST /api/v1/bank-accounts`: cadastra conta com identificador mascarado.
+- `GET /api/v1/companies/{company_id}/bank-accounts`: lista contas acessíveis.
+- `POST /api/v1/bank-accounts/{account_id}/statements/{document_id}`: associa extrato à conta.
+- `POST /api/v1/investment-requirements`: cria requisito de investimento por competência.

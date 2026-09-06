@@ -52,3 +52,10 @@ Registro de decisões técnicas tomadas durante a execução autorizada das fase
 - Justificativa: impede que o status seja alterado manualmente para esconder pendências.
 - Impacto: custo baixo; segurança e integridade operacional altas; manutenção simples por regra centralizada.
 - Revisão: novos tipos exigem migration e atualização explícita da regra.
+
+### A008 - Nenhuma credencial bancária
+- Escopo: Fase 07.
+- Decisão: armazenar apenas instituição e identificador mascarado; extratos são arquivos enviados pelo usuário.
+- Justificativa: o escopo não autoriza integração bancária externa e não há necessidade de custodiar credenciais.
+- Impacto: custo baixo; segurança alta; manutenção simples e reversível.
+- Revisão: integração futura exigirá nova análise de segurança e consentimento explícito.
